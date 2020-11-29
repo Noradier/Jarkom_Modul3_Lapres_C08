@@ -127,12 +127,17 @@ subnet 192.168.1.0 netmask 255.255.255.0 {
 ```
 - Gunakan command: **nano etc/default/isc-dhcp-server** untuk mengakses default configuration dari isc-dhcp-server
 - Tambahkan **eth0** pada opsi INTERFACESv4
+
+![Gambar 2.1](2.1.PNG)
+
 - Restart DHCP Server dengan command: **service isc-dhcp-server restart**
 - Install DHCP Relay pada SURABAYA dengan command: **apt-get install isc-dhcp-relay**
 - Akan ada perintah untuk mengisikan IP Server saat proses instalasi. Masukkan **IP Tuban** saat diminta
 - Pada perintah lainnya, cukup dilanjutkan dengan memilih opsi **Done**
 - Ubah konfigurasi default dari isc-dhcp-relay dengan command: **nano /etc/default/isc-dhcp-relay**
 - Tambahkan **eth1 eth2 eth3** pada opsi **INTERFACES**
+
+![Gambar 2.2](2.2.PNG)
 - Restart isc-dhcp-relay dengan command: **service isc-dhcp-relay restart**
  
 ## Soal 3
