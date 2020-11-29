@@ -197,7 +197,7 @@ Testing: Lakukan pengecekan DNS pada masing - masing UML dengan command: **nano 
 ## Soal 6
 
 ### Soal
-Client di subnet 1 mendapatkan peminjaman alamat IP selama 5 menit, sedangkan (6) client pada subnet 3 mendapatkan peminjaman IP selama 10 menit.
+Client di subnet 1 mendapatkan peminjaman alamat IP selama 5 menit, sedangkan client pada subnet 3 mendapatkan peminjaman IP selama 10 menit.
 
 ### Jawaban
 Tambahkan konfigurasi berikut pada dhcpd.conf:
