@@ -31,6 +31,8 @@ xterm -T GRESIK -e linux ubd0=GRESIK,jarkom umid=GRESIK eth0=daemon,,,switch1 me
 xterm -T BANYUWANGI -e linux ubd0=BANYUWANGI,jarkom umid=BANYUWANGI eth0=daemon,,,switch3 mem=64M &
 xterm -T MADIUN -e linux ubd0=MADIUN,jarkom umid=MADIUN eth0=daemon,,,switch3 mem=64M &
 ```
+![Gambar 1.1](1.1.PNG)
+
 - Membuka interface untuk masing - masing UML dengan command: **nano etc/network/interfaces**
 - Mengubah interface pada **router** dengan settingan sebagai berikut:
 ```
@@ -58,6 +60,7 @@ iface eth3 inet static
 address <IP_eth1_SURABAYA_tiap_kelompok>
 netmask 255.255.255.248
 ```
+![Gambar 1.2](1.2.PNG)
 
 - Mengubah interface pada **server** dengan settingan sebagai berikut:
 ```
@@ -70,6 +73,8 @@ address <IP_Server>
 netmask 255.255.255.248
 gateway <IP_eth1_SURABAYA_tiap_kelompok>
 ```
+![Gambar 1.3](1.3.PNG)
+
 - Mengubah interface pada **client** dengan settingan sebagai berikut:
 ```
 auto lo
@@ -78,11 +83,9 @@ iface lo inet loopback
 auto eth0
 iface eth0 inet static
 ```
-- Restart semua router, client, dan server menggunakan command: **service networking restart**
-![Gambar 1.1](1.1.PNG)
-![Gambar 1.2](1.2.PNG)
-![Gambar 1.3](1.3.PNG)
 ![Gambar 1.4](1.4.PNG)
+
+- Restart semua router, client, dan server menggunakan command: **service networking restart**
 
 ## Soal 2
 
@@ -139,6 +142,7 @@ Client pada subnet 1 mendapatkan range IP dari 192.168.0.10 sampai 192.168.0.100
 
 ### Jawaban
 Tambahkan konfigurasi berikut pada dhcpd.conf:
+
 **Setting tambahan untuk Subnet 1**
 ```
 range 192.168.0.10 192.168.0.100
@@ -157,6 +161,7 @@ Client pada subnet 3 mendapatkan range IP dari 192.168.1.50 sampai 192.168.1.70.
 
 ### Jawaban
 Tambahkan konfigurasi berikut pada dhcpd.conf:
+
 **Setting tambahan untuk Subnet 3**
 ```
 range 192.168.1.50 192.168.1.70
@@ -173,6 +178,7 @@ Testing: Lakukan pengambilan IP pada client Subnet 3 dengan perintah: **service 
 Client mendapatkan DNS Malang dan DNS 202.46.129.2 dari DHCP
 ### Jawaban
 Tambahkan konfigurasi berikut pada dhcpd.conf:
+
 **Setting tambahan untuk Subnet 1 dan 3**
 ```
 option domain-name-servers <IP_MALANG>, 202.46.129.2;
@@ -190,6 +196,7 @@ Client di subnet 1 mendapatkan peminjaman alamat IP selama 5 menit, sedangkan (6
 
 ### Jawaban
 Tambahkan konfigurasi berikut pada dhcpd.conf:
+
 **Setting tambahan untuk Subnet 1**
 ```
 default-lease-time 300;
